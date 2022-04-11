@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instancia;
     public GameObject loadingMenu;
+    public int nivelActual = 1;
     void Start()
     {
         Instancia = this;
@@ -14,7 +15,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.sceneLoaded += EscenaTerminoDeCargar;
     }
 
-    public int nivelActual = 1;
+    public void Retry(){
+        loadingMenu.gameObject.SetActive(true);
+        SceneManager.UnloadSceneAsync("Nivel_"+nivelActual);
+    }
+
     public void SiguienteNivel()
     {
         loadingMenu.gameObject.SetActive(true);
@@ -30,5 +35,6 @@ public class LevelManager : MonoBehaviour
     private void EscenaTerminoDeCargar(Scene scene, LoadSceneMode mode)
     {
         loadingMenu.gameObject.SetActive(false);
+        GameManager.Instancia.IniciaSiguienteNivel();
     }
 }

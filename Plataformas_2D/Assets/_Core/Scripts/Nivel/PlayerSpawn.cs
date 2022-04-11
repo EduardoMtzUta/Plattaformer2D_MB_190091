@@ -6,6 +6,7 @@ public class PlayerSpawn : MonoBehaviour
 {
     void Start()
     {
-        
+        GameManager.Instancia.player.transform.position = this.transform.position;
+        GameManager.Instancia.player.playerMovement.Desbloquearcorrida();
     }
 }

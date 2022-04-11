@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instancia;
     public puntosEfecto puntosText_Efecto;
     public Player player;
+    public Nivel nivelActual;
     public int monedas;
     public int puntos;
     public TextMeshProUGUI monedasText;
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     public List<UI_Vida> vidasList;
     public GameObject gameOverMenu;
     public GameObject nivelCompletadoMenu;
+    public GameObject lootUI;
     void Start()
     {
         Instancia = this;
@@ -23,6 +25,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void IniciaSiguienteNivel(){
+        OnGameReset();
+    }
+
+    public void Retry(){
+        OnGameReset();
+        LevelManager.Instancia.Retry();
     }
 
     public void GameOver()
@@ -64,5 +75,17 @@ public class GameManager : MonoBehaviour
             return;
         }
         vidasList[_vidas].ApagarVida();
+    }
+
+    public void OnGameReset(){
+        player.ResetPlayer();
+        foreach (var vida in vidasList)
+        {
+            vida.PrenderVida();
+        }
+        monedas=0;
+        monedasText.text = monedas.ToString();
+        puntos = 00000;
+        puntosText.text = puntos.ToString(); 
     }
 }

@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 
     
-    private int vidas = 4;
+    public int vidas = Constantes.MAX_LIFE;
     public PlayerMovement playerMovement;
     public SpriteRenderer spriteRenderer;
     public Sprite spriteBlanco;
@@ -23,12 +23,18 @@ public class Player : MonoBehaviour
 
     }
 
+    public void ResetPlayer(){
+        esInmune = false;
+        vidas = Constantes.MAX_LIFE;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Colision con: " + other.name);
 
         if (other.tag == Constantes.TAG_MONEDA)
         {
+            AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_MONEDA);
             other.gameObject.SetActive(false);
             GameManager.Instancia.agregarMonedas();
 
@@ -50,10 +56,12 @@ public class Player : MonoBehaviour
         }else if (other.tag == Constantes.TAG_PUERTA_OBJETIVO){ 
 
             //Nivel completado
+            AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_NIVELCOMPLETADO);
             Debug.Log("Nivel completado");
             GameManager.Instancia.NivelCompletado();
 
         }else if(other.tag == Constantes.TAG_BARRANCO){
+            AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_BARRANCO);
             GameManager.Instancia.GameOver();
         }
     }

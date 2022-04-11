@@ -7,6 +7,7 @@ public class GameOverMenu : MonoBehaviour
 {
     public void OnRetryClick(){
         Debug.Log("GAME OVER - RETRY CLICK");
-        SceneManager.LoadScene("Game");
+        this.gameObject.SetActive(false);
+        GameManager.Instancia.Retry();
     }
 }

@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
         bloquearMovimiento = true;
         rb.velocity = Vector2.zero;
     }
+
+    public void Desbloquearcorrida(){
+        bloquearMovimiento = false;
+    }
     void Update()
     {
         if (bloquearMovimiento)
@@ -48,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         //Arriba Abajo
         if (Input.GetKeyDown(KeyCode.Space) && estaEnSuelo)
         {
+            AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_SALTO);
             rb.velocity = new Vector2(rb.velocity.x, salto);
         }
     }
