@@ -28,6 +28,12 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    public void CargarNivel(int _nivel){
+        loadingMenu.gameObject.SetActive(true);
+        SceneManager.UnloadSceneAsync("Nivel_" + nivelActual);
+        nivelActual = _nivel;
+    }
+
     private void TerminoDeQuitarLaEscena(Scene scene)
     {
         SceneManager.LoadScene("Nivel_" + nivelActual, LoadSceneMode.Additive);

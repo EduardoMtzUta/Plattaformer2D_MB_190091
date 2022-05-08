@@ -18463,21 +18463,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3238063066245601384, guid: c3b6af6c6825c234a8f735d9a4b54bfb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3238063066245601386, guid: c3b6af6c6825c234a8f735d9a4b54bfb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3238063066245601389, guid: c3b6af6c6825c234a8f735d9a4b54bfb, type: 3}
       propertyPath: m_Name
       value: "Ara\xF1a 1"
-      objectReference: {fileID: 0}
-    - target: {fileID: 3238063066245601389, guid: c3b6af6c6825c234a8f735d9a4b54bfb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b6af6c6825c234a8f735d9a4b54bfb, type: 3}

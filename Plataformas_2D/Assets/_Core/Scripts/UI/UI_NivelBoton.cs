@@ -20,6 +20,8 @@ public class UI_NivelBoton : MonoBehaviour
     public void OnLevelSelect()
     {
         Debug.Log("Nivel " + nivel);
+        GameManager.Instancia.seleccionDeNivelMenu.gameObject.SetActive(false);
+        LevelManager.Instancia.CargarNivel(nivel);
     }
 
     // Poner Nombre del nivel

@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     public Sprite spriteTriste;
     public Animator animator;
     private bool esInmune = false;
+    [Header("Pistola")]
+    public GameObject pistola; 
+    public GameObject bala;
     void Start()
     {
 
@@ -20,7 +23,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if(!pistola.activeInHierarchy){return;}
 
+        if(Input.GetKeyDown(KeyCode.F)){
+            Disparar();
+        }
+    }
+
+    private void Disparar(){
+        Instantiate(bala, pistola.transform.position, pistola.transform.rotation);
     }
 
     public void ResetPlayer(){

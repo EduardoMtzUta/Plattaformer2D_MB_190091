@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -17,14 +18,21 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverMenu;
     public GameObject nivelCompletadoMenu;
     public GameObject lootUI;
+    public Button pauseButtton;
+    public GameObject seleccionDeNivelMenu;
     void Start()
     {
         Instancia = this;
+        pauseButtton.onClick.AddListener(ShowLevelSelect);
     }
 
     void Update()
     {
 
+    }
+
+    private void ShowLevelSelect(){
+        seleccionDeNivelMenu.gameObject.SetActive(true);
     }
 
     public void IniciaSiguienteNivel(){
